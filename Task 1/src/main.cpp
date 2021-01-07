@@ -10,7 +10,7 @@ const char gpio_out_pin3 = 5; //D1
 
 void blinkLED(uint8_t pin,uint8_t state){
     uint8_t i = LNC_OP_GPIO_OUT;
-    i = i << 4;
+    i = i << 4;//shift 4 bits to the left
     i = i + pin;
     i = i << 1;
     i = i + state;
@@ -37,6 +37,7 @@ void setup() {
 }
 
 void loop() {
+
     blinkLED(gpio_out_pin1, 1);
     delay(2000);
     blinkLED(gpio_out_pin2, 1);
@@ -50,6 +51,5 @@ void loop() {
     delay(2000);
     blinkLED(gpio_out_pin3, 0);
     delay(2000);
-
 
 }
