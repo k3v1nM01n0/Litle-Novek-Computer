@@ -142,5 +142,20 @@ void setup() {
 }
 
 void loop() {
+  const char* host = "51.11.50.70";
+  const char* port = "5050";
+
   tcpStart();
+  tcpHost(host);
+  tcpPort(port);
+  tcpConnect();
+
+  char* buffer = (char*)malloc(1024);
+  size_t len = 0;
+  tcpReceive(buffer, &len);
+  if(len){
+    buffer[len] = '\0';
+    Serial.println(buffer);
+  }
+  free(buffer);
 }
